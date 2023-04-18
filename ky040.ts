@@ -6,7 +6,7 @@ const enum direction {
 }
 
 //% weight=100 color=#0000bb icon="\uf1ce" blockId="KY-040"
-namespace KY040 {
+namespace rotaryEncoder {
 
 
     let CLKPin = DigitalPin.P0;
