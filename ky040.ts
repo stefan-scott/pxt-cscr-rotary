@@ -41,7 +41,7 @@ namespace KY040 {
 
     //% pin.fieldEditor="gridpicker" weight=90
     //% pin.fieldOptions.columns=2
-    //% blockId=onTurned block="on turned in direction %direction"
+    //% blockId=onTurned block="on Encoder turned in direction %direction"
     //% block.loc.de="wenn in Richtung %direction gedreht"
     export function onTurned(Richtung: direction, handler: () => void) {
         control.onEvent(KYEventID + Richtung, 0, handler);
