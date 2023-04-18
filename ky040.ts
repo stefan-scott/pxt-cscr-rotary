@@ -21,7 +21,7 @@ namespace rotaryEncoder {
     let CLKLETZTE = 0
 
     //% blockId=SetKy weight=100
-    //% block="Initialize Encoder: CLK %CPin DT %DPin"
+    //% block="initialize encoder: CLK %CPin DT %DPin"
     //% block.loc.de="KY-040 Pins an CLK %CPin DT %DPin"
     //% CPin.defl=DigitalPin.C16  DPin.defl=DigitalPin.C17
     //% CPin.fieldEditor="gridpicker" DPin.fieldEditor="gridpicker"
@@ -32,22 +32,22 @@ namespace rotaryEncoder {
         pins.setPull(CLKPin, PinPullMode.PullUp)
         pins.setPull(DTPin, PinPullMode.PullUp)
         pins.onPulsed(CLKPin, PulseValue.High, function () {
-            RotaryEncoder()
+            goRotaryEncoder()
         })
         pins.onPulsed(CLKPin, PulseValue.Low, function () {
-            RotaryEncoder()
+            goRotaryEncoder()
         })
     }
 
     //% pin.fieldEditor="gridpicker" weight=90
     //% pin.fieldOptions.columns=2
-    //% blockId=onTurned block="on Encoder turned in direction %direction"
+    //% blockId=onTurned block="on encoder turned in direction %direction"
     //% block.loc.de="wenn in Richtung %direction gedreht"
     export function onTurned(Richtung: direction, handler: () => void) {
         control.onEvent(KYEventID + Richtung, 0, handler);
     }
 
-    //% blockId=onPressEvent block="Encoder Button on %pin|pressed"
+    //% blockId=onPressEvent block="encoder button on %pin|pressed"
     //% block.loc.de="wenn KY040 an %pin|gedrückt"
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.columns=5 
@@ -68,7 +68,7 @@ namespace rotaryEncoder {
     }
 
 
-    function RotaryEncoder() {
+    function goRotaryEncoder() {
         CLKAKTUELL = pins.digitalReadPin(CLKPin)
         if (CLKAKTUELL != CLKLETZTE) {
             if (pins.digitalReadPin(DTPin) != CLKAKTUELL) {
