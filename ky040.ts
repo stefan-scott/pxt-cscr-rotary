@@ -1,7 +1,7 @@
 const enum direction {
     //% block="RIGHT"
     clockwise = 2,
-    //% block="↪LEFT"
+    //% block="LEFT"
     counterclockwise = 4
 }
 
@@ -21,7 +21,7 @@ namespace KY040 {
     let CLKLETZTE = 0
 
     //% blockId=SetKy weight=100
-    //% block="setKYPins CLK %CPin DT %DPin"
+    //% block="Initialize Encoder: CLK %CPin DT %DPin"
     //% block.loc.de="KY-040 Pins an CLK %CPin DT %DPin"
     //% CPin.defl=DigitalPin.C16  DPin.defl=DigitalPin.C17
     //% CPin.fieldEditor="gridpicker" DPin.fieldEditor="gridpicker"
@@ -47,7 +47,7 @@ namespace KY040 {
         control.onEvent(KYEventID + Richtung, 0, handler);
     }
 
-    //% blockId=onPressEvent block="on KY040 at %pin|pressed"
+    //% blockId=onPressEvent block="Encoder Button on %pin|pressed"
     //% block.loc.de="wenn KY040 an %pin|gedrückt"
     //% pin.fieldEditor="gridpicker"
     //% pin.fieldOptions.columns=5 
