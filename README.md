@@ -1,69 +1,31 @@
-# KY040 Rotary Encoder MakeCode Package [![Build Status](https://travis-ci.org/Tinkertanker/pxt-ky040-microbit.svg?branch=master)](https://travis-ci.org/Tinkertanker/pxt-ky040-microbit)
 
-This is the MakeCode package for the KY-040 rotary encoder.
+> Diese Seite bei [https://mkleinsb.github.io/pxt-ky-040/](https://mkleinsb.github.io/pxt-ky-040/) öffnen
 
-## Hardware Setup
-1. Connect the appropriate pins (CLK, DT, SW, GND) to the micro:bit.
+## Als Erweiterung verwenden
 
-## Blocks
-### Initialise rotary encoder
-Initialises the rotary encoder.
+Dieses Repository kann als **Erweiterung** in MakeCode hinzugefügt werden.
 
-Sets up the micro:bit to use the rotary encoder.
+* öffne [https://makecode.calliope.cc/](https://makecode.calliope.cc/)
+* klicke auf **Neues Projekt**
+* klicke auf **Erweiterungen** unter dem Zahnrad-Menü
+* nach **https://github.com/mkleinsb/pxt-ky-040** suchen und importieren
 
-```sig
-RotaryEncoder.init(P0, P1, P2)
-```
+## Dieses Projekt bearbeiten ![Build Status Abzeichen](https://github.com/mkleinsb/pxt-ky-040/workflows/MakeCode/badge.svg)
 
-This block must be placed before any of the other blocks in this list.
+Um dieses Repository in MakeCode zu bearbeiten.
 
-### On button pressed
-Button push event.
+* öffne [https://makecode.calliope.cc/](https://makecode.calliope.cc/)
+* klicke auf **Importieren** und dann auf **Importiere URL**
+* füge **https://github.com/mkleinsb/pxt-ky-040** ein und klicke auf Importieren
 
-Called whenever the button is pushed down.
+## Blockvorschau
 
-```sig
-RotaryEncoder.onPressEvent(() => {
-    basic.showString("Button pressed!")
-})
-```
+Dieses Bild zeigt den Blockcode vom letzten Commit im Master an.
+Die Aktualisierung dieses Bildes kann einige Minuten dauern.
 
-### On rotate (left/right)
-Rotation event.
+![Eine gerenderte Ansicht der Blöcke](https://github.com/mkleinsb/pxt-ky-040/raw/master/.github/makecode/blocks.png)
 
-Called whenever the encoder detects rotation.
+#### Metadaten (verwendet für Suche, Rendering)
 
-```sig
-RotaryEncoder.onRotateEvent(RotationDirection.Left, () => {
-    basic.showString("<")
-})
-
-RotaryEncoder.onRotateEvent(RotationDirection.Right, () => {
-    basic.showString(">")
-})
-```
-
-## Example: Number input
-The follow code creates a number input that can be adjusted by turning the encoder.
-
-```blocks
-RotaryEncoder.init(P0, P1, P2)
-let item = 0
-basic.showNumber(item)
-RotaryEncoder.onRotateEvent(RotationDirection.Left, () => {
-    item -= 1
-    basic.showNumber(item)
-})
-RotaryEncoder.onRotateEvent(RotationDirection.Right, () => {
-    item += 1
-    basic.showNumber(item)
-})
-RotaryEncoder.onPressEvent(() => {
-    basic.showString("selected!")
-})
-```
-
-## Supported targets
-
- * for PXT/microbit
- 
+* for PXT/calliopemini
+<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
